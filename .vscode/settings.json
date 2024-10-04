@@ -6,6 +6,17 @@
     ],
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.dependency.packagePresentation": "hierarchical",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "editor.fontLigatures": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.autoGuessEncoding": true,
+    "editor.wordWrap": "on",
+    "files.candidateGuessEncodings": [
+        "utf8",
+        "gb2312"
+    ],
     "terminal.integrated.profiles.windows": {
         "MSYS2 - MSYS": {
             "path": [
