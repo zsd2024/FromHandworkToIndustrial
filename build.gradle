@@ -6,7 +6,7 @@ sourceSets.main.java.srcDirs = ["src"]
 
 repositories {
     mavenCentral()
-    maven { url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
+    maven { url "https://cccccccccccccccccccccccccccccccccccccccccccccccccccc.cc/https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
     maven { url 'https://www.jitpack.io' }
 }
 
@@ -51,12 +51,12 @@ task jarAndroid {
     dependsOn "jar"
 
     doLast {
-        if (!sdkRoot || !new File(sdkRoot).exists()) 
+        if (!sdkRoot || !new File(sdkRoot).exists())
             throw new GradleException("未找到有效的 Android SDK. 请确保 ANDROID_HOME 设置为您的 Android SDK 目录。");
 
         def platformRoot = new File("$sdkRoot/platforms/").listFiles().sort().reverse().find { f -> new File(f, "android.jar").exists() }
 
-        if (!platformRoot) 
+        if (!platformRoot)
             throw new GradleException("未找到 android.jar. 请确保您已安装 Android 平台。")
 
         // 收集解析所需的依赖项

@@ -10,7 +10,7 @@ public class corePrimitive {
     public static CoreBlock core_primitive;
 
     public static void load() {
-        core_primitive = new CoreBlock("core-primitive-wooden") {
+        core_primitive = new CoreBlock("core-primitive") {
             {
                 requirements(Category.effect, new ItemStack[] { new ItemStack(ModItems.log, 100) });
                 alwaysUnlocked = true;
