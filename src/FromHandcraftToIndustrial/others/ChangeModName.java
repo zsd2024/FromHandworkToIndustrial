@@ -31,10 +31,18 @@ public class ChangeModName {
         Mods.LoadedMod mod = Vars.mods.getMod("from-handcraft-to-industrial");
         Locale locale = Core.bundle.getLocale();
         if (mod != null) {
-            if (locale == Locale.CHINA) {
+            if (locale.getCountry() == "CN" && locale.getLanguage() == "zh") {
                 mod.meta.displayName = "从手工到工业";
             } else {
                 mod.meta.displayName = "From Handcraft To Industrial";
+            }
+        }
+        {
+            index = Mathf.random(tips_zh_cn.length - 1);
+            if (locale.getCountry() == "CN" && locale.getLanguage() == "zh") {
+                mod.meta.description = basic_discription_zh_cn + "\n\n" + "小提示：" + tips_zh_cn[index];
+            } else {
+                mod.meta.description = basic_discription_en_us + "\n\n" + "Tip:" + tips_en_us[index];
             }
         }
         Timer timer = new Timer();
@@ -42,7 +50,7 @@ public class ChangeModName {
             @Override
             public void run() {
                 index = Mathf.random(tips_zh_cn.length - 1);
-                if (locale == Locale.CHINA) {
+                if (locale.getCountry() == "CN" && locale.getLanguage() == "zh") {
                     mod.meta.description = basic_discription_zh_cn + "\n\n" + "小提示：" + tips_zh_cn[index];
                 } else {
                     mod.meta.description = basic_discription_en_us + "\n\n" + "Tip:" + tips_en_us[index];
