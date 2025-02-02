@@ -6,12 +6,12 @@ sourceSets.main.java.srcDirs = ["src"]
 
 repositories {
     mavenCentral()
-    maven { url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
+    maven { url "https://ghproxy.cc/https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
     maven { url 'https://www.jitpack.io' }
 }
 
 java {
-    targetCompatibility = 8
+    targetCompatibility = 17
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
@@ -27,7 +27,7 @@ ext {
 // Java 8 向后兼容标志
 allprojects {
     tasks.withType(JavaCompile) {
-        options.compilerArgs.addAll(['--release', '8'])
+        options.compilerArgs.addAll(['--release', '17'])
     }
 }
 

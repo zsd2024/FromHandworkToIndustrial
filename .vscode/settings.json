@@ -57,4 +57,5 @@
         }
     },
     "window.zoomLevel": 1,
+    "java.dependency.syncWithFolderExplorer": true,
 }
