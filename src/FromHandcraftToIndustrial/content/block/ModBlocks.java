@@ -1,6 +1,7 @@
 package FromHandcraftToIndustrial.content.block;
 
-import FromHandcraftToIndustrial.content.block.core.corePrimitive;
+import FromHandcraftToIndustrial.content.block.core.coreBlocks;
+import FromHandcraftToIndustrial.content.block.kinetic.kineticBlocks;
 import FromHandcraftToIndustrial.content.item.ModItems;
 import mindustry.content.Fx;
 import mindustry.content.Items;
@@ -17,7 +18,8 @@ public class ModBlocks {
     public static GenericCrafter log_cutter;
 
     public static void load() {
-        corePrimitive.load();
+        coreBlocks.load();
+        kineticBlocks.load();
         wood_wall = new Wall("log-wall") {
             {
                 requirements(Category.defense, BuildVisibility.shown, with(ModItems.log, 10));
