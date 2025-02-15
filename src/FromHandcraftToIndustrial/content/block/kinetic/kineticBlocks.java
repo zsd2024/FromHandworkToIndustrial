@@ -10,16 +10,19 @@ import mindustry.world.meta.BuildVisibility;
 
 public class kineticBlocks {
     public static KineticProducer kinetic_source;
-    public static void load(){
-        kinetic_source = new KineticProducer("kinetic-source") {{
-            requirements(Category.crafting, BuildVisibility.sandboxOnly, ItemStack.with());
-            drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
-            rotateDraw = false;
-            size = 1;
-            kineticOutput = 1000f;
-            energyProductionRate = 1000f;
-            regionRotated1 = 1;
-            ambientSound = Sounds.none;
-        }};
+
+    public static void load() {
+        kinetic_source = new KineticProducer("kinetic-source") {
+            {
+                requirements(Category.crafting, BuildVisibility.sandboxOnly, ItemStack.with());
+                drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
+                rotateDraw = false;
+                size = 1;
+                kineticOutput = 1000f;
+                energyProductionRate = 1000f;
+                regionRotated1 = 1;
+                ambientSound = Sounds.none;
+            }
+        };
     }
 }

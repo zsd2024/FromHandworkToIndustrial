@@ -24,7 +24,7 @@ ext {
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
 }
 
-// Java 8 向后兼容标志
+// Java 17 向后兼容标志
 allprojects {
     tasks.withType(JavaCompile) {
         options.compilerArgs.addAll(['--release', '17'])
@@ -36,6 +36,8 @@ dependencies {
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
 
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+
+    // implementation 'com.github.liplum:MultiCrafterLib:1.8'
 }
 
 // 强制使用 Arc 版本

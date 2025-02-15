@@ -1,5 +1,7 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
@@ -58,4 +60,7 @@
     },
     "window.zoomLevel": 1,
     "java.dependency.syncWithFolderExplorer": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
 }
