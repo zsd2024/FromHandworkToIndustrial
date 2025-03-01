@@ -63,4 +63,8 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "codesnap.transparentBackground": true,
+    "codesnap.showWindowTitle": true,
+    "codesnap.showWindowControls": false,
 }
