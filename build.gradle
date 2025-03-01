@@ -11,7 +11,7 @@ repositories {
 }
 
 java {
-    targetCompatibility = 17
+    targetCompatibility = 8
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
@@ -24,10 +24,10 @@ ext {
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
 }
 
-// Java 17 向后兼容标志
+// Java 8 向后兼容标志
 allprojects {
     tasks.withType(JavaCompile) {
-        options.compilerArgs.addAll(['--release', '17'])
+        options.compilerArgs.addAll(['--release', '8'])
     }
 }
 
