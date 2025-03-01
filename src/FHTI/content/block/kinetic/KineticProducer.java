@@ -2,6 +2,7 @@ package FHTI.content.block.kinetic;
 
 import arc.math.*;
 import arc.util.io.*;
+import mindustry.gen.Iconc;
 import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.blocks.production.*;
@@ -20,6 +21,10 @@ public class KineticProducer extends GenericCrafter {
      * 该生产器的动能产生速率
      */
     public float energyProductionRate = 0.15f;
+    /**
+     * 动能状态
+     */
+    public StatUnit kineticUnits;
 
     public KineticProducer(String name) {
         super(name);
@@ -38,7 +43,8 @@ public class KineticProducer extends GenericCrafter {
         super.setStats();
 
         // 在 stats 窗口中显示该生产器的动能
-        stats.add(Stat.output, kineticOutput, StatUnit.heatUnits);
+        kineticUnits = new StatUnit("kineticUnits", "[red]动能[]");
+        stats.add(Stat.output, kineticOutput, kineticUnits);
     }
 
     @Override
