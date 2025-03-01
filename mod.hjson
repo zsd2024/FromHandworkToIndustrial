@@ -8,7 +8,7 @@ name: "from-handcraft-to-industrial"
 author: "zsd2024"
 
 #模组的完整主类
-main: "FromHandcraftToIndustrial.FromHandcraftToIndustrialMod"
+main: "FHTI.FromHandcraftToIndustrialMod"
 
 #在模组对话框中看到的模组描述
 description: ""
@@ -17,7 +17,7 @@ description: ""
 version: 1.0
 
 #运行此模组所需的最低游戏版本
-minGameVersion: 145
+minGameVersion: 146
 
 #这是一个Java模组
 java: true
