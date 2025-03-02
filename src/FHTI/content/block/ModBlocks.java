@@ -4,14 +4,14 @@ import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
-import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.*;
 
 import FHTI.content.block.core.coreBlocks;
-import FHTI.content.block.kinetic.kineticBlocks;
+import FHTI.content.block.wearable.wearableBlocks.kineticBlocks;
+import FHTI.content.block.wearable.wearableBlocks.defense.Wall;
 import FHTI.content.block.wearable.WearableBlock;
 import FHTI.content.item.ModItems;
 

@@ -1,5 +1,6 @@
-package FHTI.content.block.kinetic;
+package FHTI.content.block.wearable.wearableBlocks;
 
+import FHTI.content.block.wearable.wearableBlocks.kinetic.KineticProducer;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -22,6 +23,7 @@ public class kineticBlocks {
                 energyProductionRate = 1000f;
                 regionRotated1 = 1;
                 ambientSound = Sounds.none;
+                serviceLife = 114514;
             }
         };
     }

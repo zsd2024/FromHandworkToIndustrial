@@ -1,6 +1,9 @@
-package FHTI.content.block.kinetic;
+package FHTI.content.block.wearable.wearableBlocks.kinetic;
 
+import arc.Core;
+import arc.graphics.Color;
 import arc.math.*;
+import arc.util.Log;
 import arc.util.io.*;
 import mindustry.graphics.*;
 import mindustry.ui.*;
@@ -12,6 +15,12 @@ import mindustry.world.meta.*;
  * 一个动能生产器
  */
 public class KineticProducer extends GenericCrafter {
+
+    /**
+     * 该可磨损方块的使用寿命
+     */
+    public float serviceLife;
+
     /**
      * 该生产器产生的动能
      */
@@ -49,7 +58,11 @@ public class KineticProducer extends GenericCrafter {
     @Override
     public void setBars() {
         super.setBars();
-
+        addBar("wearlevel", (KineticProducerBuild entity) -> new Bar(
+                () -> Core.bundle.get("stat.from-handcraft-to-industrial-wearlevel"),
+                () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
+                        100),
+                entity::wearLevelf));
         // 在 stats 窗口中显示该生产器的动能百分比
         addBar("kinetic",
                 (KineticProducerBuild entity) -> new Bar("bar.from-handcraft-to-industrial-kinetic", Pal.lightOrange,
@@ -57,6 +70,66 @@ public class KineticProducer extends GenericCrafter {
     }
 
     public class KineticProducerBuild extends GenericCrafterBuild implements KineticBlock {
+
+        /// WearableBlockBuild Code Start
+
+        /**
+         * 该可磨损方块的使用时间
+         */
+        public double serviceTime;
+
+        /**
+         * 上次更新时间
+         */
+        private long lastUpdate = -1;
+
+        /**
+         * 该可磨损方块的磨损百分比
+         *
+         * @return 磨损百分比
+         */
+        public float wearLevelf() {
+            return (float) (serviceTime / serviceLife);
+        }
+
+        /**
+         * 获取基础使用寿命增量
+         *
+         * @return 基础使用寿命增量
+         */
+        public float getUsageIncrementBesic() {
+            return 1.0f;
+        }
+
+        /**
+         * 获取每秒使用寿命增量
+         *
+         * @return 每秒使用寿命增量
+         */
+        public float getUsageIncrementPerSecond() {
+            return getUsageIncrementBesic() / healthf();
+        }
+
+        /**
+         * 更新使用寿命
+         */
+        public void updateServiceTime() {
+            if (lastUpdate == -1) {
+                lastUpdate = System.nanoTime();
+            } else {
+                Log.info("lastUpdate: " + lastUpdate);
+                serviceTime += (System.nanoTime() - lastUpdate) * 1e-9 * getUsageIncrementPerSecond();
+
+                lastUpdate = System.nanoTime();
+            }
+            Log.info("Current serviceTime: " + serviceTime);
+            if (serviceTime >= serviceLife) {
+                kill();
+            }
+        }
+
+        /// WearableBlockBuild Code End
+
         // 该生产器当前的动能
         public float kinetic;
 
