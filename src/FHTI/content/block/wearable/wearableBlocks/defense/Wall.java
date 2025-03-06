@@ -15,8 +15,6 @@ import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
 
-import FHTI.content.block.wearable.WearableBlock.WearableBlockBuild;
-
 public class Wall extends Block {
     /**
      * 该可磨损方块的使用寿命
@@ -61,7 +59,7 @@ public class Wall extends Block {
     @Override
     public void setBars() {
         super.setBars();
-        addBar("wearlevel", (WearableBlockBuild entity) -> new Bar(
+        addBar("wearlevel", (WallBuild entity) -> new Bar(
                 () -> Core.bundle.get("stat.from-handcraft-to-industrial-wearlevel"),
                 () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
                         100),

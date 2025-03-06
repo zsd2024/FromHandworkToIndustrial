@@ -29,6 +29,7 @@ public class ModBlocks {
                 health = 100;
                 size = 1;
                 buildCostMultiplier = 2f;
+                serviceLife = 600;
             }
         };
         log_cutter = new GenericCrafter("log-cutter") {
