@@ -143,7 +143,7 @@ public class Wall extends Block {
         }
 
         /// WearableBlockBuild Code End
-        ///
+
         /** 击中效果 */
         public float hit;
 
@@ -217,6 +217,13 @@ public class Wall extends Block {
             }
 
             return true;
+        }
+
+        @Override
+        public void updateTile() {
+            super.updateTile();
+
+            updateServiceTime();
         }
     }
 }

@@ -1,24 +1,21 @@
 package FHTI.content.block;
 
-import mindustry.content.Fx;
-import mindustry.content.Items;
-import mindustry.type.Category;
-import mindustry.type.ItemStack;
-import mindustry.world.blocks.production.GenericCrafter;
-import mindustry.world.meta.BuildVisibility;
-
-import static mindustry.type.ItemStack.*;
+import static mindustry.type.ItemStack.with;
 
 import FHTI.content.block.core.coreBlocks;
 import FHTI.content.block.wearable.wearableBlocks.kineticBlocks;
 import FHTI.content.block.wearable.wearableBlocks.defense.Wall;
-import FHTI.content.block.wearable.WearableBlock;
+import FHTI.content.block.wearable.wearableBlocks.production.GenericCrafter;
 import FHTI.content.item.ModItems;
+import mindustry.content.Fx;
+import mindustry.content.Items;
+import mindustry.type.Category;
+import mindustry.type.ItemStack;
+import mindustry.world.meta.BuildVisibility;
 
 public class ModBlocks {
     public static Wall wood_wall;
     public static GenericCrafter log_cutter;
-    public static WearableBlock wearable_block;
 
     public static void load() {
         coreBlocks.load();
@@ -44,5 +41,9 @@ public class ModBlocks {
                 consumeItem(ModItems.log, 2);
             }
         };
+        // Events.run(EventType.Trigger.update, () -> {
+        //     if (Vars.state.isPlaying() && Vars.state.isGame()) {
+        //     }
+        // });
     }
 }
