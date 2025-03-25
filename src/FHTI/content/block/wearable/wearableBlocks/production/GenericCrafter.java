@@ -22,6 +22,7 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.*;
 
 import FHTI.content.block.wearable.WearableBlock.WearableBlockBuild;
+import FHTI.content.block.wearable.wearableBlocks.kinetic.KineticCalc;
 
 public class GenericCrafter extends Block {
 
@@ -184,7 +185,7 @@ public class GenericCrafter extends Block {
         }
     }
 
-    public class GenericCrafterBuild extends Building {
+    public class GenericCrafterBuild extends KineticCalc {
 
         /// WearableBlockBuild Code Start
 

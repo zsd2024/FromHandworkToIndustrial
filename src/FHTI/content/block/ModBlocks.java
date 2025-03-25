@@ -3,22 +3,40 @@ package FHTI.content.block;
 import static mindustry.type.ItemStack.with;
 
 import FHTI.content.block.core.coreBlocks;
-import FHTI.content.block.wearable.wearableBlocks.kineticBlocks;
 import FHTI.content.block.wearable.wearableBlocks.defense.Wall;
+import FHTI.content.block.wearable.wearableBlocks.kinetic.KineticProducer;
 import FHTI.content.block.wearable.wearableBlocks.production.GenericCrafter;
 import FHTI.content.item.ModItems;
 import mindustry.content.Fx;
+import mindustry.gen.Sounds;
 import mindustry.type.Category;
+import mindustry.type.ItemStack;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawHeatOutput;
+import mindustry.world.draw.DrawMulti;
 import mindustry.world.meta.BuildVisibility;
 
 public class ModBlocks {
+    public static KineticProducer kinetic_source;
     public static Wall wood_wall;
     public static GenericCrafter log_cutter;
     public static GenericCrafter plank_cutter;
 
     public static void load() {
         coreBlocks.load();
-        kineticBlocks.load();
+        kinetic_source = new KineticProducer("kinetic-source") {
+            {
+                requirements(Category.crafting, BuildVisibility.sandboxOnly, ItemStack.with());
+                drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
+                rotateDraw = false;
+                size = 1;
+                kineticOutput = 1000f;
+                energyProductionRate = 1000f;
+                regionRotated1 = 1;
+                ambientSound = Sounds.none;
+                serviceLife = 114514;
+            }
+        };
         wood_wall = new Wall("log-wall") {
             {
                 requirements(Category.defense, BuildVisibility.shown, with(ModItems.log, 10));
