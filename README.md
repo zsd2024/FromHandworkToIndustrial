@@ -39,7 +39,7 @@ Only use `implementation` if you want to package another Java library *with your
 *[2]: Yes, I know this is stupid. It's a Github UI limitation - while the jar itself is uploaded unzipped, there is currently no way to download it as a single file.* -->
 
 <div align=center>
-    <img src="https://raw.githubusercontent.com/zsd2024/FromHandcraftToIndustrial/master/icon.png" width="128" height="128">
+    <img src="https://raw.githubusercontent.com/zsd2024/FromHandcraftToIndustrial/master/assets/icon.png" width="128" height="128">
 </div>
 <h1 align="center">
     From Handcraft to Industrial

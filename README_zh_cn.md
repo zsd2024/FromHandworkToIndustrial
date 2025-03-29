@@ -1,5 +1,5 @@
 <div align=center>
-    <img src="https://raw.githubusercontent.com/zsd2024/FromHandcraftToIndustrial/master/icon.png" width="128" height="128">
+    <img src="https://raw.githubusercontent.com/zsd2024/FromHandcraftToIndustrial/master/assets/icon.png" width="128" height="128">
 </div>
 <h1 align="center">
     从手工到工业
