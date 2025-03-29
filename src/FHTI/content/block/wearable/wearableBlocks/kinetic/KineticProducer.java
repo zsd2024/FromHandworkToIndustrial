@@ -117,12 +117,12 @@ public class KineticProducer extends GenericCrafter {
             if (lastUpdate == -1) {
                 lastUpdate = System.nanoTime();
             } else {
-                Log.info("lastUpdate: " + lastUpdate);
+                // Log.info("lastUpdate: " + lastUpdate);
                 serviceTime += (System.nanoTime() - lastUpdate) * 1e-9 * getUsageIncrementPerSecond();
 
                 lastUpdate = System.nanoTime();
             }
-            Log.info("Current serviceTime: " + serviceTime);
+            // Log.info("Current serviceTime: " + serviceTime);
             if (serviceTime >= serviceLife) {
                 kill();
             }

@@ -48,6 +48,7 @@ public class ModBlocks {
 
                 craftEffect = Fx.pulverizeMedium;
                 outputItems = with(ModItems.wood_block, 6, ModItems.wood_chip, 30);
+                itemCapacity = 30;
                 craftTime = 350f;
                 size = 4;
                 hasItems = true;
@@ -65,6 +66,7 @@ public class ModBlocks {
 
                 craftEffect = Fx.pulverizeMedium;
                 outputItems = with(ModItems.wood_plank, 4, ModItems.wood_chip, 10);
+                itemCapacity = 15;
                 craftTime = 200f;
                 size = 4;
                 hasItems = true;

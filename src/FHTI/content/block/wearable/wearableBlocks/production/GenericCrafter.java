@@ -21,7 +21,6 @@ import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
 
-import FHTI.content.block.wearable.WearableBlock.WearableBlockBuild;
 import FHTI.content.block.wearable.wearableBlocks.ModBuilding;
 
 public class GenericCrafter extends Block {
@@ -107,7 +106,7 @@ public class GenericCrafter extends Block {
             }
         }
 
-        addBar("wearlevel", (WearableBlockBuild entity) -> new Bar(
+        addBar("wearlevel", (GenericCrafterBuild entity) -> new Bar(
                 () -> Core.bundle.get("stat.from-handcraft-to-industrial-wearlevel"),
                 () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
                         100),
@@ -233,12 +232,12 @@ public class GenericCrafter extends Block {
             if (lastUpdate == -1) {
                 lastUpdate = System.nanoTime();
             } else {
-                Log.info("lastUpdate: " + lastUpdate);
+                // Log.info("lastUpdate: " + lastUpdate);
                 serviceTime += (System.nanoTime() - lastUpdate) * 1e-9 * getUsageIncrementPerSecond();
 
                 lastUpdate = System.nanoTime();
             }
-            Log.info("Current serviceTime: " + serviceTime);
+            // Log.info("Current serviceTime: " + serviceTime);
             if (serviceTime >= serviceLife) {
                 kill();
             }
