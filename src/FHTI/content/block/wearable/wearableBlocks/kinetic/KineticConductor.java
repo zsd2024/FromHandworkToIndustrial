@@ -1,5 +1,6 @@
 package FHTI.content.block.wearable.wearableBlocks.kinetic;
 
+import FHTI.content.block.wearable.wearableBlocks.ModBuilding;
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.TextureRegion;
@@ -96,7 +97,7 @@ public class KineticConductor extends Block {
     /**
      * 该动能传导器的实现
      */
-    public class KineticConductorBuild extends KineticCalc implements KineticBlock, KineticConsumer {
+    public class KineticConductorBuild extends ModBuilding implements KineticBlock, KineticConsumer {
 
         /// WearableBlockBuild Code Start
 

@@ -1,5 +1,6 @@
 package FHTI.content.block.wearable.wearableBlocks.kinetic;
 
+import FHTI.content.block.wearable.wearableBlocks.production.GenericCrafter;
 import arc.Core;
 import arc.graphics.Color;
 import arc.math.*;
@@ -7,7 +8,6 @@ import arc.util.Log;
 import arc.util.io.*;
 import mindustry.graphics.*;
 import mindustry.ui.*;
-import mindustry.world.blocks.production.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
