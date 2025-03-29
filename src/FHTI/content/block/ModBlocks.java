@@ -18,30 +18,28 @@ import mindustry.world.draw.DrawMulti;
 import mindustry.world.meta.BuildVisibility;
 
 public class ModBlocks {
-    public static Block kinetic_source, wood_wall, log_cutter, plank_cutter;
+    public static Block log_wall, wooden_wall, // 墙
+            log_cutter, plank_cutter, // 工厂
+            kinetic_source; // 动能
 
     public static void load() {
         coreBlocks.load();
-        kinetic_source = new KineticProducer("kinetic-source") {
-            {
-                requirements(Category.crafting, BuildVisibility.sandboxOnly, ItemStack.with());
-                drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
-                rotateDraw = false;
-                size = 1;
-                kineticOutput = 1000f;
-                energyProductionRate = 1000f;
-                regionRotated1 = 1;
-                ambientSound = Sounds.none;
-                serviceLife = 114514;
-            }
-        };
-        wood_wall = new Wall("log-wall") {
+        log_wall = new Wall("log-wall") {
             {
                 requirements(Category.defense, BuildVisibility.shown, with(ModItems.log, 10));
                 health = 100;
                 size = 1;
                 buildCostMultiplier = 2f;
                 serviceLife = 600;
+            }
+        };
+        wooden_wall = new Wall("wooden-wall") {
+            {
+                requirements(Category.defense, BuildVisibility.shown, with(ModItems.wood_block, 10));
+                health = 175;
+                size = 1;
+                buildCostMultiplier = 1.5f;
+                serviceLife = 800;
             }
         };
         log_cutter = new KineticCrafter("log-cutter") {
@@ -76,6 +74,19 @@ public class ModBlocks {
                 kineticRequirement = 2f;
                 overkineticScale = 0.5f;
                 maxEfficiency = 2f;
+            }
+        };
+        kinetic_source = new KineticProducer("kinetic-source") {
+            {
+                requirements(Category.crafting, BuildVisibility.sandboxOnly, ItemStack.with());
+                drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
+                rotateDraw = false;
+                size = 1;
+                kineticOutput = 1000f;
+                energyProductionRate = 1000f;
+                regionRotated1 = 1;
+                ambientSound = Sounds.none;
+                serviceLife = 114514;
             }
         };
         // Events.run(EventType.Trigger.update, () -> {
