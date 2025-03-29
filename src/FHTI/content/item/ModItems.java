@@ -1,13 +1,13 @@
 package FHTI.content.item;
 
 import arc.graphics.Color;
+import arc.struct.Seq;
 import mindustry.type.Item;
 
 public class ModItems {
-    public static Item log;
-    public static Item wood_chip;
-    public static Item wood_block;
-    public static Item wood_plank; // 木板
+    public static Item log, wood_chip, wood_block, wood_plank;
+
+    public static final Seq<Item> zetasItems = new Seq<>();
 
     public static void load() {
         log = new Item("log", Color.valueOf("#8B4513")) {
@@ -38,5 +38,6 @@ public class ModItems {
                 cost = 1; // 建造时间
             }
         };
+        zetasItems.addAll(log, wood_chip, wood_block, wood_plank);
     }
 }

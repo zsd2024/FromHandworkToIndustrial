@@ -5,22 +5,20 @@ import static mindustry.type.ItemStack.with;
 import FHTI.content.block.core.coreBlocks;
 import FHTI.content.block.wearable.wearableBlocks.defense.Wall;
 import FHTI.content.block.wearable.wearableBlocks.kinetic.KineticProducer;
-import FHTI.content.block.wearable.wearableBlocks.production.GenericCrafter;
+import FHTI.content.block.wearable.wearableBlocks.production.KineticCrafter;
 import FHTI.content.item.ModItems;
 import mindustry.content.Fx;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
+import mindustry.world.Block;
 import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawHeatOutput;
 import mindustry.world.draw.DrawMulti;
 import mindustry.world.meta.BuildVisibility;
 
 public class ModBlocks {
-    public static KineticProducer kinetic_source;
-    public static Wall wood_wall;
-    public static GenericCrafter log_cutter;
-    public static GenericCrafter plank_cutter;
+    public static Block kinetic_source, wood_wall, log_cutter, plank_cutter;
 
     public static void load() {
         coreBlocks.load();
@@ -46,7 +44,7 @@ public class ModBlocks {
                 serviceLife = 600;
             }
         };
-        log_cutter = new GenericCrafter("log-cutter") {
+        log_cutter = new KineticCrafter("log-cutter") {
             {
                 requirements(Category.crafting, with(ModItems.log, 10));
 
@@ -57,9 +55,13 @@ public class ModBlocks {
                 hasItems = true;
                 consumeItem(ModItems.log, 2);
                 serviceLife = 300;
+
+                kineticRequirement = 3f;
+                overkineticScale = 0.5f;
+                maxEfficiency = 2f;
             }
         };
-        plank_cutter = new GenericCrafter("plank-cutter") {
+        plank_cutter = new KineticCrafter("plank-cutter") {
             {
                 requirements(Category.crafting, with(ModItems.log, 5, ModItems.wood_block, 8));
 
@@ -70,6 +72,10 @@ public class ModBlocks {
                 hasItems = true;
                 consumeItem(ModItems.wood_block, 1);
                 serviceLife = 200;
+
+                kineticRequirement = 2f;
+                overkineticScale = 0.5f;
+                maxEfficiency = 2f;
             }
         };
         // Events.run(EventType.Trigger.update, () -> {
