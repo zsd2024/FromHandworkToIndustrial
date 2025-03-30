@@ -2,7 +2,7 @@ package FHTI.content.block.wearable;
 
 import arc.Core;
 import arc.graphics.Color;
-import arc.util.Log;
+// import arc.util.Log;
 import mindustry.gen.Building;
 import mindustry.ui.Bar;
 import mindustry.world.Block;

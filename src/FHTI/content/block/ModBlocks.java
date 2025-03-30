@@ -50,7 +50,7 @@ public class ModBlocks {
                 outputItems = with(ModItems.wood_block, 6, ModItems.wood_chip, 30);
                 itemCapacity = 30;
                 craftTime = 350f;
-                size = 4;
+                size = 2;
                 hasItems = true;
                 consumeItem(ModItems.log, 2);
                 serviceLife = 300;

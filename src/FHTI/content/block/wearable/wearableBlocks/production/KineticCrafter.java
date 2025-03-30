@@ -32,7 +32,8 @@ public class KineticCrafter extends GenericCrafter {
 
         addBar("kinetic",
                 (KineticCrafterBuild entity) -> new Bar(
-                        () -> Core.bundle.format("bar.from-handcraft-to-industrial-kineticpercent", (int) (entity.kinetic + 0.01f),
+                        () -> Core.bundle.format("bar.from-handcraft-to-industrial-kineticpercent",
+                                (int) (entity.kinetic + 0.01f),
                                 (int) (entity.efficiencyScale() * 100 + 0.01f)),
                         () -> Pal.lightOrange,
                         () -> entity.kinetic / kineticRequirement));
@@ -42,7 +43,7 @@ public class KineticCrafter extends GenericCrafter {
     public void setStats() {
         super.setStats();
 
-        kineticUnits = new StatUnit("kineticUnits", "[blue]动能[]");
+        kineticUnits = new StatUnit("from-handcraft-to-industrial-kineticUnits", "[blue]动能[]");
         stats.add(Stat.input, kineticRequirement, kineticUnits);
         stats.add(Stat.maxEfficiency, (int) (maxEfficiency * 100f), StatUnit.percent);
     }

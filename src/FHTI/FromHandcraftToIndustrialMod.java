@@ -3,7 +3,8 @@ package FHTI;
 import FHTI.content.block.ModBlocks;
 import FHTI.content.item.ModItems;
 import FHTI.others.ChangeModName;
-import arc.util.Log;
+import FHTI.content.ModPlanets;
+// import arc.util.Log;
 import mindustry.mod.Mod;
 
 public class FromHandcraftToIndustrialMod extends Mod {
@@ -17,5 +18,6 @@ public class FromHandcraftToIndustrialMod extends Mod {
         ChangeModName.load();
         ModItems.load();
         ModBlocks.load();
+        ModPlanets.load();
     }
 }
