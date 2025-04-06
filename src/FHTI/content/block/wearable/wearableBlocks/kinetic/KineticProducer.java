@@ -59,13 +59,13 @@ public class KineticProducer extends GenericCrafter {
     public void setBars() {
         super.setBars();
         addBar("wearlevel", (KineticProducerBuild entity) -> new Bar(
-                () -> Core.bundle.get("stat.from-handcraft-to-industrial-wearlevel"),
+                () -> Core.bundle.get("stat.from-handwork-to-industrial-wearlevel"),
                 () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
                         100),
                 entity::wearLevelf));
         // 在 stats 窗口中显示该生产器的动能百分比
         addBar("kinetic",
-                (KineticProducerBuild entity) -> new Bar("bar.from-handcraft-to-industrial-kinetic", Pal.lightOrange,
+                (KineticProducerBuild entity) -> new Bar("bar.from-handwork-to-industrial-kinetic", Pal.lightOrange,
                         () -> entity.kinetic / kineticOutput));
     }
 

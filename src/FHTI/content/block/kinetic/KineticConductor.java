@@ -48,7 +48,7 @@ public class KineticConductor extends Block {
         // TODO show number
         addBar("kinetic",
                 (KineticConductorBuild entity) -> new Bar(
-                        () -> Core.bundle.format("bar.from-handcraft-to-industrial-kineticamount",
+                        () -> Core.bundle.format("bar.from-handwork-to-industrial-kineticamount",
                                 (int) (entity.kinetic + 0.001f)),
                         () -> Pal.lightOrange, () -> entity.kinetic / visualMaxKinetic));
     }

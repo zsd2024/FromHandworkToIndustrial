@@ -55,7 +55,7 @@ public class KineticConductor extends Block {
         super.setBars();
 
         addBar("wearlevel", (KineticConductorBuild entity) -> new Bar(
-                () -> Core.bundle.get("stat.from-handcraft-to-industrial-wearlevel"),
+                () -> Core.bundle.get("stat.from-handwork-to-industrial-wearlevel"),
                 () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
                         100),
                 entity::wearLevelf));
@@ -63,7 +63,7 @@ public class KineticConductor extends Block {
         // TODO show number
         addBar("kinetic",
                 (KineticConductorBuild entity) -> new Bar(
-                        () -> Core.bundle.format("bar.from-handcraft-to-industrial-kineticamount",
+                        () -> Core.bundle.format("bar.from-handwork-to-industrial-kineticamount",
                                 (int) (entity.kinetic + 0.001f)),
                         () -> Pal.lightOrange, () -> entity.kinetic / visualMaxKinetic));
     }

@@ -60,7 +60,7 @@ public class Wall extends Block {
     public void setBars() {
         super.setBars();
         addBar("wearlevel", (WallBuild entity) -> new Bar(
-                () -> Core.bundle.get("stat.from-handcraft-to-industrial-wearlevel"),
+                () -> Core.bundle.get("stat.from-handwork-to-industrial-wearlevel"),
                 () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
                         100),
                 entity::wearLevelf));

@@ -42,7 +42,7 @@ Only use `implementation` if you want to package another Java library *with your
     <img src="https://raw.githubusercontent.com/zsd2024/FromHandcraftToIndustrial/master/assets/icon.png" width="128" height="128">
 </div>
 <h1 align="center">
-    From Handcraft to Industrial
+    From Handwork to Industrial
 </h1>
 <div align=center>
     <a href="https://github.com/zsd2024/FromHandcraftToIndustrial" target="_blank">

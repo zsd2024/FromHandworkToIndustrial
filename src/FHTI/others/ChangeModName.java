@@ -28,13 +28,13 @@ public class ChangeModName {
     static int index = Mathf.random(tips_zh_cn.length - 1);
 
     public static void load() {
-        Mods.LoadedMod mod = Vars.mods.getMod("from-handcraft-to-industrial");
+        Mods.LoadedMod mod = Vars.mods.getMod("from-handwork-to-industrial");
         Locale locale = Core.bundle.getLocale();
         if (mod != null) {
             if (locale.getCountry() == "CN" && locale.getLanguage() == "zh") {
                 mod.meta.displayName = "从手工到工业";
             } else {
-                mod.meta.displayName = "From Handcraft To Industrial";
+                mod.meta.displayName = "From Handwork to Industrial";
             }
         }
         {

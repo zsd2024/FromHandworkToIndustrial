@@ -52,7 +52,7 @@ public class KineticProducer extends GenericCrafter {
 
         // 在 stats 窗口中显示该生产器的动能百分比
         addBar("kinetic",
-                (KineticProducerBuild entity) -> new Bar("bar.from-handcraft-to-industrial-kinetic", Pal.lightOrange,
+                (KineticProducerBuild entity) -> new Bar("bar.from-handwork-to-industrial-kinetic", Pal.lightOrange,
                         () -> entity.kinetic / kineticOutput));
     }
 

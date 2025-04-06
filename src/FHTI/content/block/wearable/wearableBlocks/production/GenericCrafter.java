@@ -107,7 +107,7 @@ public class GenericCrafter extends Block {
         }
 
         addBar("wearlevel", (GenericCrafterBuild entity) -> new Bar(
-                () -> Core.bundle.get("stat.from-handcraft-to-industrial-wearlevel"),
+                () -> Core.bundle.get("stat.from-handwork-to-industrial-wearlevel"),
                 () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
                         100),
                 entity::wearLevelf));
