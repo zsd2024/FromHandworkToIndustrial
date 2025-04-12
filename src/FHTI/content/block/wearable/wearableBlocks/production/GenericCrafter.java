@@ -78,6 +78,33 @@ public class GenericCrafter extends Block {
     public void setStats() {
         stats.timePeriod = craftTime;
         super.setStats();
+        if (serviceLife < 60f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-seconds"), serviceLife);
+        else if (serviceLife < 3600f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-minutes"),
+                    (int) (serviceLife / 60f), serviceLife % 60f);
+        else if (serviceLife < 86400f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-hours"),
+                    (int) (serviceLife / 3600f), (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
+        else if (serviceLife < 604800f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-days"),
+                    (int) (serviceLife / 86400f), (int) (serviceLife % 86400f / 3600f),
+                    (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
+        else if (serviceLife < 31536000f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-weeks"),
+                    (int) (serviceLife / 604800f), (int) (serviceLife % 604800f / 86400f),
+                    (int) (serviceLife % 86400f / 3600f), (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
+        else
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-years"),
+                    (int) (serviceLife / 31536000f), (int) (serviceLife % 31536000f / 604800f),
+                    (int) (serviceLife % 604800f / 86400f), (int) (serviceLife % 86400f / 3600f),
+                    (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
         if ((hasItems && itemCapacity > 0) || outputItems != null) {
             stats.add(Stat.productionTime, craftTime / 60f, StatUnit.seconds);
         }

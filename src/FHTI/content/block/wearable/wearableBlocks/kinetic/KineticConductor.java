@@ -14,6 +14,7 @@ import mindustry.ui.Bar;
 import mindustry.world.Block;
 import mindustry.world.draw.DrawBlock;
 import mindustry.world.draw.DrawDefault;
+import mindustry.world.meta.Stat;
 
 /**
  * 一个动能传导器,这个动能传导器可以将动能从一个方向传递到另一个方向,
@@ -66,6 +67,38 @@ public class KineticConductor extends Block {
                         () -> Core.bundle.format("bar.from-handwork-to-industrial-kineticamount",
                                 (int) (entity.kinetic + 0.001f)),
                         () -> Pal.lightOrange, () -> entity.kinetic / visualMaxKinetic));
+    }
+
+    @Override
+    public void setStats() {
+        super.setStats();
+        if (serviceLife < 60f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-seconds"), serviceLife);
+        else if (serviceLife < 3600f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-minutes"),
+                    (int) (serviceLife / 60f), serviceLife % 60f);
+        else if (serviceLife < 86400f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-hours"),
+                    (int) (serviceLife / 3600f), (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
+        else if (serviceLife < 604800f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-days"),
+                    (int) (serviceLife / 86400f), (int) (serviceLife % 86400f / 3600f),
+                    (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
+        else if (serviceLife < 31536000f)
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-weeks"),
+                    (int) (serviceLife / 604800f), (int) (serviceLife % 604800f / 86400f),
+                    (int) (serviceLife % 86400f / 3600f), (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
+        else
+            stats.add(new Stat("from-handwork-to-industrial-service-life"),
+                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-years"),
+                    (int) (serviceLife / 31536000f), (int) (serviceLife % 31536000f / 604800f),
+                    (int) (serviceLife % 604800f / 86400f), (int) (serviceLife % 86400f / 3600f),
+                    (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
     }
 
     /**

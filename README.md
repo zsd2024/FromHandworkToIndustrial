@@ -39,31 +39,31 @@ Only use `implementation` if you want to package another Java library *with your
 *[2]: Yes, I know this is stupid. It's a Github UI limitation - while the jar itself is uploaded unzipped, there is currently no way to download it as a single file.* -->
 
 <div align=center>
-    <img src="https://raw.githubusercontent.com/zsd2024/FromHandcraftToIndustrial/master/assets/icon.png" width="128" height="128">
+    <img src="https://raw.githubusercontent.com/zsd2024/FromHandworkToIndustrial/master/assets/icon.png" width="128" height="128">
 </div>
 <h1 align="center">
     From Handwork to Industrial
 </h1>
 <div align=center>
-    <a href="https://github.com/zsd2024/FromHandcraftToIndustrial" target="_blank">
-        <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/zsd2024/FromHandcraftToIndustrial">
+    <a href="https://github.com/zsd2024/FromHandworkToIndustrial" target="_blank">
+        <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/zsd2024/FromHandworkToIndustrial">
     </a>
-    <a href="https://github.com/zsd2024/FromHandcraftToIndustrial" target="_blank">
+    <a href="https://github.com/zsd2024/FromHandworkToIndustrial" target="_blank">
         <img alt="Number of Files"
-            src="https://img.shields.io/github/directory-file-count/zsd2024/FromHandcraftToIndustrial?type=file">
+            src="https://img.shields.io/github/directory-file-count/zsd2024/FromHandworkToIndustrial?type=file">
     </a>
-    <a href="https://github.com/zsd2024/FromHandcraftToIndustrial" target="_blank">
-        <img alt="License Information" src="https://img.shields.io/github/license/zsd2024/FromHandcraftToIndustrial">
+    <a href="https://github.com/zsd2024/FromHandworkToIndustrial" target="_blank">
+        <img alt="License Information" src="https://img.shields.io/github/license/zsd2024/FromHandworkToIndustrial">
     </a>
-    <a href="https://github.com/zsd2024/FromHandcraftToIndustrial/actions" target="_blank">
+    <a href="https://github.com/zsd2024/FromHandworkToIndustrial/actions" target="_blank">
         <img alt="Workflow Status"
-            src="https://img.shields.io/github/actions/workflow/status/zsd2024/FromHandcraftToIndustrial/.github%2Fworkflows%2FcommitTest.yml">
+            src="https://img.shields.io/github/actions/workflow/status/zsd2024/FromHandworkToIndustrial/.github%2Fworkflows%2FcommitTest.yml">
     </a>
-    <a href="https://github.com/zsd2024/FromHandcraftToIndustrial/stargazers" target="_blank">
-        <img alt="Star Count" src="https://img.shields.io/github/stars/zsd2024/FromHandcraftToIndustrial">
+    <a href="https://github.com/zsd2024/FromHandworkToIndustrial/stargazers" target="_blank">
+        <img alt="Star Count" src="https://img.shields.io/github/stars/zsd2024/FromHandworkToIndustrial">
     </a>
-    <a href="https://wakatime.com/badge/github/zsd2024/FromHandcraftToIndustrial" target="_blank">
-        <img src="https://wakatime.com/badge/github/zsd2024/FromHandcraftToIndustrial.svg" alt="Coding Time Statistics">
+    <a href="https://wakatime.com/badge/github/zsd2024/FromHandworkToIndustrial" target="_blank">
+        <img src="https://wakatime.com/badge/github/zsd2024/FromHandworkToIndustrial.svg" alt="Coding Time Statistics">
     </a>
 </div>
 
