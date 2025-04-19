@@ -2,7 +2,6 @@ package FHTI.content.block.wearable.wearableBlocks.kinetic;
 
 import FHTI.content.block.wearable.wearableBlocks.production.GenericCrafter;
 import arc.Core;
-import arc.graphics.Color;
 import arc.math.*;
 // import arc.util.Log;
 import arc.util.io.*;
@@ -15,12 +14,6 @@ import mindustry.world.meta.*;
  * 一个动能生产器
  */
 public class KineticProducer extends GenericCrafter {
-
-    /**
-     * 该可磨损方块的使用寿命
-     */
-    public float serviceLife;
-
     /**
      * 该生产器产生的动能
      */
@@ -50,47 +43,15 @@ public class KineticProducer extends GenericCrafter {
     public void setStats() {
         super.setStats();
 
-        if (serviceLife < 60f)
-            stats.add(new Stat("from-handwork-to-industrial-service-life"),
-                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-seconds"), serviceLife);
-        else if (serviceLife < 3600f)
-            stats.add(new Stat("from-handwork-to-industrial-service-life"),
-                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-minutes"),
-                    (int) (serviceLife / 60f), serviceLife % 60f);
-        else if (serviceLife < 86400f)
-            stats.add(new Stat("from-handwork-to-industrial-service-life"),
-                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-hours"),
-                    (int) (serviceLife / 3600f), (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
-        else if (serviceLife < 604800f)
-            stats.add(new Stat("from-handwork-to-industrial-service-life"),
-                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-days"),
-                    (int) (serviceLife / 86400f), (int) (serviceLife % 86400f / 3600f),
-                    (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
-        else if (serviceLife < 31536000f)
-            stats.add(new Stat("from-handwork-to-industrial-service-life"),
-                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-weeks"),
-                    (int) (serviceLife / 604800f), (int) (serviceLife % 604800f / 86400f),
-                    (int) (serviceLife % 86400f / 3600f), (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
-        else
-            stats.add(new Stat("from-handwork-to-industrial-service-life"),
-                    Core.bundle.get("stat.from-handwork-to-industrial-service-life-years"),
-                    (int) (serviceLife / 31536000f), (int) (serviceLife % 31536000f / 604800f),
-                    (int) (serviceLife % 604800f / 86400f), (int) (serviceLife % 86400f / 3600f),
-                    (int) (serviceLife % 3600f / 60f), serviceLife % 60f);
-
         // 在 stats 窗口中显示该生产器的动能
-        kineticUnits = new StatUnit("kineticUnits", "[blue]动能[]");
+        kineticUnits = new StatUnit("from-handwork-to-industrial-kineticUnits",
+                Core.bundle.get("icon.from-handwork-to-industrial-kinetic"));
         stats.add(Stat.output, kineticOutput, kineticUnits);
     }
 
     @Override
     public void setBars() {
         super.setBars();
-        addBar("wearlevel", (KineticProducerBuild entity) -> new Bar(
-                () -> Core.bundle.get("stat.from-handwork-to-industrial-wearlevel"),
-                () -> Color.HSVtoRGB((1.0f - entity.wearLevelf()) * 0.5f * 360, 100,
-                        100),
-                entity::wearLevelf));
         // 在 stats 窗口中显示该生产器的动能百分比
         addBar("kinetic",
                 (KineticProducerBuild entity) -> new Bar("bar.from-handwork-to-industrial-kinetic", Pal.lightOrange,
@@ -98,66 +59,6 @@ public class KineticProducer extends GenericCrafter {
     }
 
     public class KineticProducerBuild extends GenericCrafterBuild implements KineticBlock {
-
-        /// WearableBlockBuild Code Start
-
-        /**
-         * 该可磨损方块的使用时间
-         */
-        public double serviceTime;
-
-        /**
-         * 上次更新时间
-         */
-        private long lastUpdate = -1;
-
-        /**
-         * 该可磨损方块的磨损百分比
-         *
-         * @return 磨损百分比
-         */
-        public float wearLevelf() {
-            return (float) (serviceTime / serviceLife);
-        }
-
-        /**
-         * 获取基础使用寿命增量
-         *
-         * @return 基础使用寿命增量
-         */
-        public float getUsageIncrementBesic() {
-            return 1.0f;
-        }
-
-        /**
-         * 获取每秒使用寿命增量
-         *
-         * @return 每秒使用寿命增量
-         */
-        public float getUsageIncrementPerSecond() {
-            return getUsageIncrementBesic() / healthf();
-        }
-
-        /**
-         * 更新使用寿命
-         */
-        public void updateServiceTime() {
-            if (lastUpdate == -1) {
-                lastUpdate = System.nanoTime();
-            } else {
-                // Log.info("lastUpdate: " + lastUpdate);
-                serviceTime += (System.nanoTime() - lastUpdate) * 1e-9 * getUsageIncrementPerSecond();
-
-                lastUpdate = System.nanoTime();
-            }
-            // Log.info("Current serviceTime: " + serviceTime);
-            if (serviceTime >= serviceLife) {
-                kill();
-            }
-        }
-
-        /// WearableBlockBuild Code End
-
         // 该生产器当前的动能
         public float kinetic;
 

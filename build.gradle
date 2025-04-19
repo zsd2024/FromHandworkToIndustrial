@@ -17,7 +17,7 @@ java {
 
 ext {
     // 本模组所针对的构建版本
-    mindustryVersion = 'v146'
+    mindustryVersion = 'v147.1'
     jabelVersion = "93fde537c7"
     // Windows 系统效果不好
     isWindows = System.getProperty("os.name").toLowerCase().contains("windows")

@@ -2,10 +2,8 @@ package FHTI.content;
 
 import mindustry.type.Planet;
 import mindustry.world.meta.Env;
-import FHTI.content.block.core.coreBlocks;
-import FHTI.content.item.ModItems;
+import FHTI.content.block.ModBlocks;
 import arc.graphics.Color;
-import mindustry.content.Items;
 import mindustry.content.Planets;
 import mindustry.game.Team;
 import mindustry.graphics.g3d.HexMesh;
@@ -39,9 +37,9 @@ public class ModPlanets {
                 lightSrcTo = 0.5f;
                 lightDstFrom = 0.2f;
                 clearSectorOnLose = true; // 失去时清除区块
-                defaultCore = coreBlocks.core_primitive; // 默认核心
+                defaultCore = ModBlocks.core_primitive; // 默认核心
                 iconColor = Color.valueOf("#6691ff"); // 图标颜色
-                hiddenItems.addAll(Items.erekirItems).addAll(Items.serpuloItems).removeAll(ModItems.zetasItems); // 隐藏物品
+
                 enemyBuildSpeedMultiplier = 0.4f; // 敌人建造速度倍率
 
                 allowLaunchToNumbered = false; // 禁止发射到数字区块
@@ -57,7 +55,7 @@ public class ModPlanets {
                     r.onlyDepositCore = true;
                 }; // 规则设置器
 
-                unlockedOnLand.add(coreBlocks.core_primitive); // 解锁地块
+                unlockedOnLand.add(ModBlocks.core_primitive); // 解锁地块
             }
         };
     }

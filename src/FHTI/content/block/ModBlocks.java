@@ -2,12 +2,13 @@ package FHTI.content.block;
 
 import static mindustry.type.ItemStack.with;
 
-import FHTI.content.block.core.coreBlocks;
 import FHTI.content.block.wearable.wearableBlocks.defense.Wall;
 import FHTI.content.block.wearable.wearableBlocks.kinetic.KineticProducer;
 import FHTI.content.block.wearable.wearableBlocks.production.KineticCrafter;
+import FHTI.content.block.wearable.wearableBlocks.storage.CoreBlock;
 import FHTI.content.item.ModItems;
 import mindustry.content.Fx;
+import mindustry.content.UnitTypes;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -20,10 +21,10 @@ import mindustry.world.meta.BuildVisibility;
 public class ModBlocks {
     public static Block log_wall, wooden_wall, // 墙
             log_cutter, plank_cutter, // 工厂
-            kinetic_source; // 动能
+            kinetic_source, // 动能
+            core_primitive; // 核心
 
     public static void load() {
-        coreBlocks.load();
         log_wall = new Wall("log-wall") {
             {
                 requirements(Category.defense, BuildVisibility.shown, with(ModItems.log, 10));
@@ -55,7 +56,7 @@ public class ModBlocks {
                 consumeItem(ModItems.log, 2);
                 serviceLife = 300;
 
-                kineticRequirement = 3f;
+                kineticRequirement = 20f;
                 overkineticScale = 0.5f;
                 maxEfficiency = 2f;
             }
@@ -89,6 +90,19 @@ public class ModBlocks {
                 regionRotated1 = 1;
                 ambientSound = Sounds.none;
                 serviceLife = 114514;
+            }
+        };
+        core_primitive = new CoreBlock("core-primitive") {
+            {
+                requirements(Category.effect, new ItemStack[] { new ItemStack(ModItems.log, 100) });
+                alwaysUnlocked = true;
+                isFirstTier = true;
+                unitType = UnitTypes.alpha;
+                health = 300;
+                itemCapacity = 300;
+                size = 2;
+                unitCapModifier = 4;
+                serviceLife = 900;
             }
         };
         // Events.run(EventType.Trigger.update, () -> {

@@ -43,7 +43,8 @@ public class KineticCrafter extends GenericCrafter {
     public void setStats() {
         super.setStats();
 
-        kineticUnits = new StatUnit("from-handwork-to-industrial-kineticUnits", "[blue]动能[]");
+        kineticUnits = new StatUnit("from-handwork-to-industrial-kineticUnits",
+                Core.bundle.get("icon.from-handwork-to-industrial-kinetic"));
         stats.add(Stat.input, kineticRequirement, kineticUnits);
         stats.add(Stat.maxEfficiency, (int) (maxEfficiency * 100f), StatUnit.percent);
     }
