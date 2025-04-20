@@ -2,13 +2,13 @@ package FHTI.content.block;
 
 import static mindustry.type.ItemStack.with;
 
+import FHTI.content.ModUnits;
 import FHTI.content.block.wearable.wearableBlocks.defense.Wall;
 import FHTI.content.block.wearable.wearableBlocks.kinetic.KineticProducer;
 import FHTI.content.block.wearable.wearableBlocks.production.KineticCrafter;
 import FHTI.content.block.wearable.wearableBlocks.storage.CoreBlock;
 import FHTI.content.item.ModItems;
 import mindustry.content.Fx;
-import mindustry.content.UnitTypes;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -19,12 +19,14 @@ import mindustry.world.draw.DrawMulti;
 import mindustry.world.meta.BuildVisibility;
 
 public class ModBlocks {
+
     public static Block log_wall, wooden_wall, // 墙
             log_cutter, plank_cutter, // 工厂
             kinetic_source, // 动能
             core_primitive; // 核心
 
     public static void load() {
+        // region 墙
         log_wall = new Wall("log-wall") {
             {
                 requirements(Category.defense, BuildVisibility.shown, with(ModItems.log, 10));
@@ -43,6 +45,7 @@ public class ModBlocks {
                 serviceLife = 800;
             }
         };
+        // region 工厂
         log_cutter = new KineticCrafter("log-cutter") {
             {
                 requirements(Category.crafting, with(ModItems.log, 10));
@@ -79,6 +82,7 @@ public class ModBlocks {
                 maxEfficiency = 2f;
             }
         };
+        // region 动能
         kinetic_source = new KineticProducer("kinetic-source") {
             {
                 requirements(Category.crafting, BuildVisibility.sandboxOnly, ItemStack.with());
@@ -92,12 +96,13 @@ public class ModBlocks {
                 serviceLife = 114514;
             }
         };
+        // region 核心
         core_primitive = new CoreBlock("core-primitive") {
             {
                 requirements(Category.effect, new ItemStack[] { new ItemStack(ModItems.log, 100) });
                 alwaysUnlocked = true;
                 isFirstTier = true;
-                unitType = UnitTypes.alpha;
+                unitType = ModUnits.primitive_silicon_based_life;
                 health = 300;
                 itemCapacity = 300;
                 size = 2;
